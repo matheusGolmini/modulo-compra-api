@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import * as ControllerFornecedor from '../controllers/estoque'
+import * as ControllerEstoque from '../controllers/estoque'
 
 const router = Router();
 
-router.post('/',ControllerFornecedor.criar);
-router.get('/',ControllerFornecedor.buscar);
-router.get('/:id',ControllerFornecedor.buscarPorId);
-router.delete('/:id',ControllerFornecedor.deletar);
+router.post('/',ControllerEstoque.criar);
+router.get('/',ControllerEstoque.buscar);
+router.get('/:id',ControllerEstoque.buscarPorId);
+router.delete('/:id',ControllerEstoque.deletar);
 
 
 export default router;
