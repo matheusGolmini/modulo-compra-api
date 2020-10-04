@@ -4,10 +4,11 @@ import Usuario from './Usuario'
 import Fornecedor from './Fornecedor'
 import Produto from './Produto'
 import Documento from './Documento'
+import Compra from "./Compra";
 
 
 @Entity('cotacao')
-export default class ProdutoEstoque extends DefaultAttributes {
+export default class Cotacao extends DefaultAttributes {
     @Column()
     precoFim: number
 
@@ -22,7 +23,7 @@ export default class ProdutoEstoque extends DefaultAttributes {
 
     @ManyToOne(type => Usuario, comprador => Usuario)
     @JoinColumn({ name: 'usuario_id' })
-    usuario_id: Usuario
+    usuario: Usuario
 
     @ManyToOne(type => Fornecedor, fornecedor => Fornecedor)
     @JoinColumn({ name: 'fornecedor_id' })
@@ -31,6 +32,10 @@ export default class ProdutoEstoque extends DefaultAttributes {
     @ManyToOne(type => Produto, fornecedor => Produto)
     @JoinColumn({ name: 'produto_id' })
     produto: Produto
+
+    @ManyToOne(type => Compra, comprador => Compra)
+    @JoinColumn({ name: 'compra_id' })
+    compra: Compra
 
     @OneToOne(type => Documento, fornecedor => Documento)
     documento: Documento
