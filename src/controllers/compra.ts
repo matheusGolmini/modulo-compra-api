@@ -4,6 +4,7 @@ import { Tables } from "../enum/tables"
 import { VerificarProduto } from "../service/produto";
 import { verificarCotacao, verificarMelhorCotacao } from "../service/cotacao";
 import { diminuirDataPorDia } from "../utils/data";
+import { criarDocumentoPorCompra } from "../service/documento";
 
 const crudRepository = new Crud(Tables.COMPRA)
 
@@ -22,7 +23,8 @@ export async function criar(req: Request, res: Response) {
     compra.cotacao = melhorCotacao.id
     const result = await crudRepository.create(compra)
     if(!result) return res.status(404).json({message: "não foi possivel cadastrar a compra no sistema"})
-    return res.status(202).json(result)
+    res.status(202).json(result)
+    criarDocumentoPorCompra(result.id)
 }
 
 export async function buscar(req: Request, res: Response) {
