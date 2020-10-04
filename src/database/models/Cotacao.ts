@@ -2,7 +2,6 @@ import DefaultAttributes from "./DefaultAttributes";
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, ManyToOne } from "typeorm";
 import Usuario from './Usuario'
 import Fornecedor from './Fornecedor'
-import Produto from './Produto'
 import Documento from './Documento'
 import Compra from "./Compra";
 
@@ -14,6 +13,9 @@ export default class Cotacao extends DefaultAttributes {
 
     @Column()
     precoUn: number
+
+    @Column({ type: "uuid", name: "produto_id"})
+    produto: string
 
     @Column({ type: 'date' })
     prazoEntrega: Date
@@ -28,10 +30,6 @@ export default class Cotacao extends DefaultAttributes {
     @ManyToOne(type => Fornecedor, fornecedor => Fornecedor)
     @JoinColumn({ name: 'fornecedor_id' })
     fornecedor: Fornecedor
-
-    @ManyToOne(type => Produto, fornecedor => Produto)
-    @JoinColumn({ name: 'produto_id' })
-    produto: Produto
 
     @OneToMany(type => Compra, comprador => Compra)
     compra: Compra
