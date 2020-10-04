@@ -19,7 +19,7 @@ export default class Compra extends DefaultAttributes {
     @JoinColumn({ name: 'produto_id' })
     produto: Produto
 
-    @OneToMany(type => Cotacao, comprador => Cotacao)
+    @ManyToOne(type => Cotacao, comprador => Cotacao)
     @JoinColumn({ name: 'cotacao_id' })
     cotacao: Cotacao
 }

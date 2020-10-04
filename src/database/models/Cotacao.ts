@@ -14,6 +14,9 @@ export default class Cotacao extends DefaultAttributes {
 
     @Column()
     precoUn: number
+    
+    @Column()
+    quantidade: number
 
     @Column({ type: 'date' })
     prazoEntrega: Date
@@ -33,8 +36,7 @@ export default class Cotacao extends DefaultAttributes {
     @JoinColumn({ name: 'produto_id' })
     produto: Produto
 
-    @ManyToOne(type => Compra, comprador => Compra)
-    @JoinColumn({ name: 'compra_id' })
+    @OneToMany(type => Compra, comprador => Compra)
     compra: Compra
 
     @OneToOne(type => Documento, fornecedor => Documento)
