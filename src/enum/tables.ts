@@ -5,5 +5,6 @@ export enum Tables {
     PRODUTO = "produto",
     PRODUTO_ESTOQUE= "produto_estoque",
     USUARIO= "usuario",
-    COTACAO= "cotacao"
+    COTACAO= "cotacao",
+    COMPRA= "compra"
 }
