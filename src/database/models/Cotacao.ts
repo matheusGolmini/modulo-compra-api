@@ -14,9 +14,6 @@ export default class Cotacao extends DefaultAttributes {
 
     @Column()
     precoUn: number
-    
-    @Column()
-    quantidade: number
 
     @Column({ type: 'date' })
     prazoEntrega: Date
