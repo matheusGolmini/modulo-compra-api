@@ -1,14 +1,19 @@
 import { Response, Request } from "express";
 import Crud from "../repository";
 import { Tables } from "../enum/tables"
+import { entradaDeposito,EntradaDeposito } from "../service/estoque";
+import { criarDocumentoEntradaEstoque } from "../service/documento";
 
 const crudRepository = new Crud(Tables.ESTOQUE)
 
 export async function criar(req: Request, res: Response) {
-    const loja = req.body
-    const result = await crudRepository.create(loja)
-    if(!result) return res.status(404).json({message: "não foi possivel cadastrar o fornecedor no sistema"})
-    return res.status(202).json(result)
+    const entrada: EntradaDeposito = req.body
+
+    const result: any = await entradaDeposito(entrada)
+
+    if(!result || !result.value) return res.status(200).json(result)
+    res.status(202).json(result)
+    criarDocumentoEntradaEstoque()
 }
 
 export async function buscar(req: Request, res: Response) {
