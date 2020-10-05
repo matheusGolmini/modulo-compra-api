@@ -1,6 +1,7 @@
 import axios from 'axios';
+import config from './index'
 
 const api = axios.create({
-    baseURL: 'http://localhost:3005/',
+    baseURL: config().api_estoque,
 })
 export default api;

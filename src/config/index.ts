@@ -15,6 +15,7 @@ export default function config() {
         username: getFromEnv('DB_USERNAME'),
         database: getFromEnv('DB_DATABASE'),
         password: getFromEnv('DB_PASS')
-      }
+      },
+      api_estoque: getFromEnv('API_ESTOQUE')
     }
 }
