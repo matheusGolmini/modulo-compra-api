@@ -1,8 +1,8 @@
 import api from '../config/axios'
 
-export async function verificarProduto(produto: string) : Promise<boolean> {
+export async function verificarFornecedor(fornecedor: string) : Promise<boolean> {
     try {
-        const res = await api.get(`produto/${produto}`)
+        const res = await api.get(`fornecedor/${fornecedor}`)
         if(!!res) return true
         return false
     } catch (error) {

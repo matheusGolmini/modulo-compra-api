@@ -1,7 +1,7 @@
 import { Response, Request } from "express";
 import Crud from "../repository";
 import { Tables } from "../enum/tables"
-import { VerificarProduto } from "../service/produto";
+import { verificarProduto } from "../service/produto";
 import { verificarCotacao, verificarMelhorCotacao } from "../service/cotacao";
 import { diminuirDataPorDia } from "../utils/data";
 import { criarDocumentoPorCompra } from "../service/documento";
@@ -10,7 +10,7 @@ const crudRepository = new Crud(Tables.COMPRA)
 
 export async function criar(req: Request, res: Response) {
     const compra = req.body
-    const validProduto = await VerificarProduto(compra.produto)
+    const validProduto = await verificarProduto(compra.produto)
     if(!validProduto) return res.status(200).json({ message: "produto não encontrado" })
     
     const veriCotacao = await verificarCotacao(compra.produto, compra.data_compra, diminuirDataPorDia(compra.data_compra, 7))

@@ -1,7 +1,6 @@
 import DefaultAttributes from "./DefaultAttributes";
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, ManyToOne } from "typeorm";
 import Usuario from './Usuario'
-import Fornecedor from './Fornecedor'
 import Documento from './Documento'
 import Compra from "./Compra";
 
@@ -27,9 +26,8 @@ export default class Cotacao extends DefaultAttributes {
     @JoinColumn({ name: 'usuario_id' })
     usuario: Usuario
 
-    @ManyToOne(type => Fornecedor, fornecedor => Fornecedor)
-    @JoinColumn({ name: 'fornecedor_id' })
-    fornecedor: Fornecedor
+    @Column({type: 'uuid', name: 'fornecedor_id'})
+    fornecedor: string
 
     @OneToMany(type => Compra, comprador => Compra)
     compra: Compra
