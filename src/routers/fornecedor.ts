@@ -1,12 +1,10 @@
-// import { Router } from 'express';
-// import * as ControllerFornecedor from '../controllers/fornecedor'
+import { Router } from 'express';
+import * as ControllerFornecedor from '../controllers/fornecedor'
 
-// const router = Router();
+const router = Router();
 
-// router.post('/',ControllerFornecedor.criar);
-// router.get('/',ControllerFornecedor.buscar);
-// router.get('/:id',ControllerFornecedor.buscarPorId);
-// router.delete('/:id',ControllerFornecedor.deletar);
+router.get('/',ControllerFornecedor.buscar);
+router.get('/:id',ControllerFornecedor.buscarPorId);
 
 
-// export default router;
+export default router;
