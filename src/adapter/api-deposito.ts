@@ -8,17 +8,6 @@ export default class CrudDepositoApi {
         this.table = table
     }
 
-    // async create(values: any){
-    //     try {
-    //         const instaceTable = getRepository(this.table)
-    //         const res = await instaceTable.save(values)
-    //         return res
-    //     } catch (error) {
-    //         console.log(`Class Crud ${error}`)
-    //         return false
-    //     }
-    // }
-
     async findAll(){
         try {
             const res = await api.get(`${this.table}`)
@@ -40,38 +29,5 @@ export default class CrudDepositoApi {
             return false
         }
     }
-
-    // async delete(id: string){
-    //     try {
-    //         const instaceTable = getRepository(this.table)
-    //         const res = await instaceTable.delete(id)
-    //         return res
-    //     } catch (error) {
-    //         console.log(`Class Crud ${error}`)
-    //         return false
-    //     }
-    // }
-
-    // async insert(value: string) {
-    //     try {
-    //         const instaceTable = getRepository(this.table)
-    //         const res = await instaceTable.insert(value)
-    //         return res
-    //     } catch (error) {
-    //         console.log(`Class Crud ${error}`)
-    //         return false
-    //     }
-    // }
-
-    // async update(value: string) {
-    //     try {
-    //         const instaceTable = getRepository(this.table)
-    //         const res = await instaceTable.save(value)
-    //         return res
-    //     } catch (error) {
-    //         console.log(`Class Crud ${error}`)
-    //         return false
-    //     }
-    // }
 
 }
