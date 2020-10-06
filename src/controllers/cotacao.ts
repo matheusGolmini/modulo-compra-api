@@ -1,16 +1,17 @@
 import { Response, Request } from "express";
 import Crud from "../repository";
 import { Tables } from "../enum/tables"
-import { verificarProduto } from "../service/produto";
-import { verificarFornecedor } from "../service/fornecedor";
+import CrudDepositoApi from "../adapter/api-deposito";
 
 const crudRepository = new Crud(Tables.COTACAO)
 
 export async function criar(req: Request, res: Response) {
     const cotacao = req.body
-    const validProduto = await verificarProduto(cotacao.produto)
+    const depostioApiProduto = new CrudDepositoApi('produto')
+    const validProduto = await depostioApiProduto.findById(cotacao.produto)
     if(!validProduto) return res.status(200).json({ message: "produto não encontrado" })
-    const validFornecedor = await verificarFornecedor(cotacao.fornecedor)
+    const depostioApiFornecedor = new CrudDepositoApi('fornecedor')
+    const validFornecedor = await depostioApiFornecedor.findById(cotacao.fornecedor)
     if(!validFornecedor) return res.status(200).json({ message: "fornecedor não encontrado" })
     const result = await crudRepository.create(cotacao)
     if(!result) return res.status(404).json({message: "não foi possivel cadastrar o fornecedor no sistema"})

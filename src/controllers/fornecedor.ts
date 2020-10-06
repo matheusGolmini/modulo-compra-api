@@ -1,15 +1,17 @@
 import { Response, Request } from "express";
-import { buscarFornecedor,buscarFornecedorId } from "../service/fornecedor";
+import CrudDepositoApi from "../adapter/api-deposito";
+
+const depostioApi = new CrudDepositoApi('fornecedor');
 
 export async function buscar(req: Request, res: Response) {
-    const result = await buscarFornecedor()
+    const result = await depostioApi.findAll()
     if(!result) return res.status(404).json({message: "não possui lojas"})
     return res.status(202).json(result)
 }
 
 export async function buscarPorId(req: Request, res: Response) {
     const { id } = req.params
-    const result = await buscarFornecedorId(id)
+    const result = await depostioApi.findById(id)
     if(!result) return res.status(404).json({message: "loja não encontrada"})
     return res.status(202).json(result)
 }
