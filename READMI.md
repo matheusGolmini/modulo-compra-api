@@ -19,7 +19,7 @@ Rodar o projeto:
 
 Importar a collection e a environment do postman que já possuem todas as requisições do projeto
 
-Se tiver alguma duvida quanto a env essas foram utilizadas:
+Se tiver alguma dúvida quanto a env essas foram utilizadas:
     NODE_ENV=dev
     SERVER_PORT=3000
     DB_HOST='localhost'
