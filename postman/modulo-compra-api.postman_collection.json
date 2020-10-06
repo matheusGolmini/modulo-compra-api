@@ -1,0 +1,442 @@
+{
+	"info": {
+		"_postman_id": "d751e435-2dac-49eb-90e8-131a152e0dad",
+		"name": "modulo-compra-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "produto",
+			"item": [
+				{
+					"name": "GetProduto",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/produto",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProdutoById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/produto/bfb3fbd1-c5c3-417c-941a-5971e3ec84f9",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"produto",
+								"bfb3fbd1-c5c3-417c-941a-5971e3ec84f9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "fornecedor",
+			"item": [
+				{
+					"name": "GetFornecedor",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"estoque 1\",\n    \"usuario\": \"bfcac6d7-4b7c-4ce5-8f56-60799eab876c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/fornecedor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"fornecedor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetFornecedorById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/fornecedor/6c10549c-2689-4473-bc98-9ada4ca8afdb",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"fornecedor",
+								"6c10549c-2689-4473-bc98-9ada4ca8afdb"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "CreateUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Henrique\",\n    \"estoque\": \"2861b771-161e-494f-bb12-aa6b4d5cbb2c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/usuario",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"estoque 1\",\n    \"usuario\": \"bfcac6d7-4b7c-4ce5-8f56-60799eab876c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/usuario",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsuarioById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/usuario/bfcac6d7-4b7c-4ce5-8f56-60799eab876c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuario",
+								"bfcac6d7-4b7c-4ce5-8f56-60799eab876c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/usuario/bfcac6d7-4b7c-4ce5-8f56-60799eab876c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuario",
+								"bfcac6d7-4b7c-4ce5-8f56-60799eab876c"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "estoque",
+			"item": [
+				{
+					"name": "CreateEstoque",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nota\": {\n        \"fornecedor\": \"6c10549c-2689-4473-bc98-9ada4ca8afdb\",\n        \"valor\": 50,\n        \"quantidade\": 50,\n        \"tipo_evento\": \"entrada\",\n        \"produto\": \"bfb3fbd1-c5c3-417c-941a-5971e3ec84f9\",\n        \"deposito\": \"2861b771-161e-494f-bb12-aa6b4d5cbb2c\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/estoque",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"estoque"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetEstoque",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"estoque 1\",\n    \"usuario\": \"bfcac6d7-4b7c-4ce5-8f56-60799eab876c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/estoque",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"estoque"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetEstoqueById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/estoque/2861b771-161e-494f-bb12-aa6b4d5cbb2c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"estoque",
+								"2861b771-161e-494f-bb12-aa6b4d5cbb2c"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "cotacao",
+			"item": [
+				{
+					"name": "CreateCotacao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"precoFim\": 500,\n    \"precoUn\": 2,\n    \"prazoEntrega\": \"2025-12-24\",\n    \"prazoPagamento\": \"2025-12-25\",\n    \"usuario\": \"81e24181-67cc-44de-927b-49dce8d6ed6d\",\n    \"fornecedor\": \"6c10549c-2689-4473-bc98-9ada4ca8afdc\",\n    \"produto\": \"bfb3fbd1-c5c3-417c-941a-5971e3ec84f9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cotacao",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cotacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCotacao",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"estoque 1\",\n    \"usuario\": \"bfcac6d7-4b7c-4ce5-8f56-60799eab876c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cotacao",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cotacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCotacaoById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"estoque 1\",\n    \"usuario\": \"bfcac6d7-4b7c-4ce5-8f56-60799eab876c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cotacao/a5c0a9e4-cdb1-4cc1-acf6-ba23b1ebea69",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cotacao",
+								"a5c0a9e4-cdb1-4cc1-acf6-ba23b1ebea69"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCotacaoById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"estoque 1\",\n    \"usuario\": \"bfcac6d7-4b7c-4ce5-8f56-60799eab876c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cotacao/a5c0a9e4-cdb1-4cc1-acf6-ba23b1ebea69",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cotacao",
+								"a5c0a9e4-cdb1-4cc1-acf6-ba23b1ebea69"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "compra",
+			"item": [
+				{
+					"name": "CreateCompra",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Compra 1\",\n    \"data_compra\": \"2020-10-11\",\n    \"produto\": \"bfb3fbd1-c5c3-417c-941a-5971e3ec84f9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/compra",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"compra"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
